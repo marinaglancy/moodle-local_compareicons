@@ -59,9 +59,9 @@ class local_compareicons_renderer extends plugin_renderer_base {
     /**
      * 
      */
-    public function display_activities_header() {
-        echo '<h2>Modules</h2>';
-        echo '<table class="table table-striped table-bordered table-hover table-condensed" style="width: 100%">';
+    public function display_list_header($heading) {
+        echo '<h2>'. $heading. '</h2>';
+        echo '<table class="table table-striped table-bordered table-hover table-condensed">';
         echo '<tr><th style="width: 40%">&nbsp;</th>';
         foreach (local_compareicons_iconslist::get_extensions() as $extension) {
             echo '<th style="width: 20%">'.$extension.'</th>';
@@ -72,7 +72,7 @@ class local_compareicons_renderer extends plugin_renderer_base {
     /**
      * 
      */
-    public function display_activities_footer() {
+    public function display_list_footer() {
         echo '</table>';
     }
 
@@ -83,18 +83,10 @@ class local_compareicons_renderer extends plugin_renderer_base {
     protected function render_local_compareicons_iconslist(local_compareicons_iconslist $iconslist) {
         global $CFG;
 
-        if ($iconslist->get_pluginname() === null) {
-            echo '<h2>'.$iconslist->get_path().'</h2>';
-            echo '<table class="table table-striped table-bordered table-hover table-condensed" style="width: 100%">';
+        if (!$iconslist->get_option('nowrapper')) {
+            $this->display_list_header($iconslist->get_path());
         }
         $images = $iconslist->get_images();
-        if ($iconslist->get_pluginname() === null) {
-            echo '<tr><th style="width: 40%">&nbsp;</th>';
-            foreach ($iconslist->get_extensions() as $extension) {
-                echo '<th style="width: 20%">'.$extension.'</th>';
-            }
-            echo '</tr>';
-        }
         foreach ($images as $filename => $image) {
             $warning = '';
             if ($iconslist->is_unused($filename)) {
@@ -122,8 +114,8 @@ class local_compareicons_renderer extends plugin_renderer_base {
             }
             echo '</tr>';
         }
-        if ($iconslist->get_pluginname() === null) {
-           echo '</table>';
+        if (!$iconslist->get_option('nowrapper')) {
+           $this->display_list_footer();
         }
     }
 }

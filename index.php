@@ -46,9 +46,10 @@ $renderer->render(new local_compareicons_iconslist('/pix/', $options));
 $renderer->render(new local_compareicons_iconslist('/pix/i/', $options));
 $renderer->render(new local_compareicons_iconslist('/pix/t/', $options));
 
-$renderer->display_activities_header();
+$renderer->display_list_header(get_string('plugins', 'admin'));
 $allplugins = plugin_manager::instance()->get_plugins();
 $subplugins = plugin_manager::instance()->get_subplugins();
+$options['nowrapper'] = true;
 
 foreach ($allplugins['mod'] as $module) {
     $renderer->render(new local_compareicons_iconslist($module->get_dir().'/pix/', $options, $module->name));
@@ -61,6 +62,6 @@ foreach ($allplugins['mod'] as $module) {
         }
     }
 }
-$renderer->display_activities_footer();
+$renderer->display_list_footer();
 
 echo $OUTPUT->footer();
