@@ -1,0 +1,2 @@
+moodle-local_compareicons
+=========================
