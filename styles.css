@@ -1,4 +1,4 @@
-img {
+.path-admin-local-compareicons img {
   width: auto\9;
   height: auto;
   max-width: 100%;
@@ -7,14 +7,11 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
-table {
+.path-admin-local-compareicons .table {
   max-width: 100%;
   background-color: transparent;
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-.table {
   width: 100%;
   margin-bottom: 20px;
 }
@@ -268,8 +265,7 @@ table th[class*="span"],
 }
 
 
-.label,
-.badge {
+.path-admin-local-compareicons .label {
   display: inline-block;
   padding: 2px 4px;
   font-size: 11.844px;
@@ -280,34 +276,20 @@ table th[class*="span"],
   white-space: nowrap;
   vertical-align: baseline;
   background-color: #999999;
-}
-
-.label {
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
 }
 
-.badge {
-  padding-right: 9px;
-  padding-left: 9px;
-  -webkit-border-radius: 9px;
-     -moz-border-radius: 9px;
-          border-radius: 9px;
-}
 
-
-.label-warning,
-.badge-warning {
+.path-admin-local-compareicons .label-warning {
   background-color: #f89406;
 }
 
-.label-success,
-.badge-success {
+.path-admin-local-compareicons .label-success {
   background-color: #468847;
 }
 
-.label-inverse,
-.badge-inverse {
+.path-admin-local-compareicons .label-inverse {
   background-color: #333333;
 }
